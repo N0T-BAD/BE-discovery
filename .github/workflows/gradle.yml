@@ -53,7 +53,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         envs: GITHUB_SHA
         script: |
-          docker-compose -f docker-compose.discovery.yml down
+          docker-compose -f docker-compose.discovery.yml down --rmi all
           docker pull geunskoo/discovery-service:${GITHUB_SHA::7}
           docker tag geunskoo/discovery-service:${GITHUB_SHA::7} discovery-service
       
